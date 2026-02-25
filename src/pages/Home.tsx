@@ -18,7 +18,12 @@ export function Home() {
             <section className="relative h-screen flex items-center justify-center overflow-hidden">
                 {/* Background Image/Gradient */}
                 <div className="absolute inset-0 z-0 bg-neutral-900 dark:bg-neutral-950">
-                    <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=2071&auto=format&fit=crop')] bg-cover bg-center opacity-40 mix-blend-overlay"></div>
+                    <img
+                        src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=2071&auto=format&fit=crop"
+                        alt="Fundo Hero"
+                        className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-overlay"
+                        fetchPriority="high"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
                 </div>
 

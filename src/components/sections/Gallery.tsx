@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 
@@ -17,9 +17,37 @@ export function Gallery() {
     const [filter, setFilter] = useState('Todos');
     const [selectedImage, setSelectedImage] = useState<typeof images[0] | null>(null);
 
-    const filteredImages = images.filter(
-        img => filter === 'Todos' || img.category === filter
-    );
+    // Body Scroll Lock Control
+    useEffect(() => {
+        if (selectedImage) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto'; // clean up on close
+        }
+
+        // Cleanup ao desmontar
+        return () => {
+            document.body.style.overflow = 'auto';
+        };
+    }, [selectedImage]);
+
+    const filteredImages = filter === 'Todos'
+        ? images
+        : images.filter(img => img.category === filter);
+
+    // Close lightbox on Escape key
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                setSelectedImage(null);
+            }
+        };
+
+        document.addEventListener('keydown', handleKeyDown);
+        return () => {
+            document.removeEventListener('keydown', handleKeyDown);
+        };
+    }, []);
 
     return (
         <section id="portfolio" className="py-24 bg-background">

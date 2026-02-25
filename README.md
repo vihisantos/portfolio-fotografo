@@ -53,65 +53,8 @@ Este projeto usa as stacks mais modernas, performáticas e amadas do mercado web
 
 ---
 
-## 💻 Como Instalar e Rodar Localmente
-
-Siga o passo a passo abaixo para rodar o projeto em sua máquina em menos de 2 minutos:
-
-```bash
-# 1. Clone o repositório
-git clone https://github.com/vihisantos/portfolio-fotografo.git
-
-# 2. Entre na pasta do projeto
-cd portfolio-fotografo
-
-# 3. Instale as dependências (recomendamos npm ou pnpm)
-npm install
-
-# 4. Rode o ambiente de desenvolvimento
-npm run dev
-```
-
-Pronto! Acesse `http://localhost:5173` no seu navegador.
-
----
-
-## 🌎 Como Fazer o Deploy Fácil no GitHub Pages
-
-Este template já vem configurado para o deploy no GitHub Pages. Siga os passos:
-
-1. Modifique o arquivo `vite.config.ts`, alterando a propriedade `base` para o nome do seu repositório:
-   ```typescript
-   export default defineConfig({
-     plugins: [react()],
-     base: '/portfolio-fotografo/', // MUDE ISSO PARA O SEU REPO
-     //...
-   })
-   ```
-2. (Opcional) Instale o pacote `gh-pages` para deploy automático:
-   ```bash
-   npm install gh-pages --save-dev
-   ```
-3. Adicione estes scripts no seu `package.json`:
-   ```json
-   "scripts": {
-     "predeploy": "npm run build",
-     "deploy": "gh-pages -d dist"
-   }
-   ```
-4. Rode `npm run deploy`. O seu portfólio estará online!
-
----
-
-## 🎨 Customização e Design System
-
-Se você quiser alterar a paleta de cores para se adequar à identidade da sua marca, basta editar as variáveis CSS no arquivo `src/index.css`.
-
-O template usa a metodologia *CSS Variables* do Tailwind, tornando a alteração de todo o tema uma questão de trocar 2 ou 3 códigos hexadecimais de cor primária.
-
----
-
 <div align="center">
-  Criado com 🖤 por desenvolvedores apaixonados por interfaces excepcionais.
+  Criado por Capybara Holding
   <br />
   <br />
   <a href="#top">Voltar ao topo</a>

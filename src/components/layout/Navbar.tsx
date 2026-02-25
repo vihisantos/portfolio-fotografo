@@ -59,22 +59,22 @@ export function Navbar() {
                         <a
                             key={link.name}
                             href={link.href}
-                            className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors tracking-wide"
+                            className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors tracking-wide"
                         >
                             {link.name}
                         </a>
                     ))}
-                    <div className="pl-4 border-l border-border">
-                        <ModeToggle />
-                    </div>
+                    <ModeToggle />
                 </nav>
 
                 {/* Mobile Toggle */}
                 <div className="md:hidden flex items-center gap-4 z-[60]">
                     <ModeToggle />
                     <button
-                        className="text-foreground p-2"
+                        className="text-foreground p-2 focus:outline-none"
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        aria-label={mobileMenuOpen ? "Fechar menu" : "Abrir menu"}
+                        aria-expanded={mobileMenuOpen}
                     >
                         {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                     </button>
