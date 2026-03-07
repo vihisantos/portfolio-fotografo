@@ -38,15 +38,15 @@ export function Navbar() {
     return (
         <header
             className={cn(
-                'fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out',
-                isScrolled
-                    ? 'bg-background/80 backdrop-blur-md border-b border-border shadow-sm py-4'
+                'fixed top-0 left-0 right-0 z-[100] transition-colors duration-300 ease-in-out',
+                isScrolled || mobileMenuOpen
+                    ? 'bg-background/95 backdrop-blur-md border-b border-border shadow-sm py-4'
                     : 'bg-transparent py-6'
             )}
         >
-            <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
+            <div className="container mx-auto px-6 md:px-12 flex items-center justify-between relative z-[110]">
                 {/* Logo */}
-                <a href="#" className="flex items-center gap-2 group z-[60]">
+                <a href="#" className="flex items-center gap-2 group">
                     <Camera className="w-6 h-6 text-foreground group-hover:rotate-12 transition-transform duration-300" />
                     <span className="text-xl font-medium tracking-widest uppercase text-foreground">
                         Frame<span className="font-light text-muted-foreground">Studio</span>
@@ -68,7 +68,7 @@ export function Navbar() {
                 </nav>
 
                 {/* Mobile Toggle */}
-                <div className="md:hidden flex items-center gap-4 z-[60]">
+                <div className="md:hidden flex items-center gap-4">
                     <ModeToggle />
                     <button
                         className="text-foreground p-2 focus:outline-none"
@@ -88,19 +88,19 @@ export function Navbar() {
                         initial={{ opacity: 0, backdropFilter: 'blur(0px)' }}
                         animate={{ opacity: 1, backdropFilter: 'blur(16px)' }}
                         exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
-                        transition={{ duration: 0.4 }}
-                        className="fixed inset-0 z-40 bg-background/95 md:hidden flex flex-col items-center justify-center"
+                        transition={{ duration: 0.3 }}
+                        className="fixed inset-0 z-[90] bg-background/95 md:hidden flex flex-col items-center justify-center pt-20"
                     >
-                        <nav className="flex flex-col items-center gap-8">
+                        <nav className="flex flex-col items-center gap-8 w-full">
                             {navLinks.map((link, i) => (
                                 <motion.a
                                     key={link.name}
                                     href={link.href}
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.1 * i, duration: 0.4 }}
+                                    transition={{ delay: 0.05 * i, duration: 0.3 }}
                                     onClick={() => setMobileMenuOpen(false)}
-                                    className="text-3xl font-light text-foreground hover:text-primary transition-colors tracking-wide"
+                                    className="text-3xl font-light text-foreground hover:text-primary transition-colors tracking-wide w-full text-center py-2"
                                 >
                                     {link.name}
                                 </motion.a>

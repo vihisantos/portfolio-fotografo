@@ -74,7 +74,7 @@ export function Gallery() {
                 </div>
 
                 {/* Filters */}
-                <div className="flex flex-wrap justify-center gap-4 mb-12">
+                <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-12">
                     {categories.map((cat, i) => (
                         <motion.button
                             key={cat}
@@ -83,7 +83,7 @@ export function Gallery() {
                             viewport={{ once: true }}
                             transition={{ delay: 0.1 + i * 0.05 }}
                             onClick={() => setFilter(cat)}
-                            className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${filter === cat
+                            className={`px-4 py-1.5 md:px-6 md:py-2 rounded-full text-xs md:text-sm font-medium transition-all ${filter === cat
                                 ? 'bg-foreground text-background'
                                 : 'bg-muted text-muted-foreground hover:bg-muted/80'
                                 }`}

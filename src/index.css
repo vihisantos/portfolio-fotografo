@@ -43,6 +43,6 @@
   }
 
   body {
-    @apply bg-background text-foreground tracking-tight antialiased selection:bg-primary selection:text-primary-foreground;
+    @apply bg-background text-foreground tracking-tight antialiased selection:bg-primary selection:text-primary-foreground overflow-x-hidden;
   }
 }
